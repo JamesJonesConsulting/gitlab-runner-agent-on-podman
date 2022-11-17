@@ -10,5 +10,5 @@ parameters:
 extends:
   template: .installer.yml    
   parameters:
-    host: ${{ paramters.host }}
+    host: ${{ parameters.host }}
 
