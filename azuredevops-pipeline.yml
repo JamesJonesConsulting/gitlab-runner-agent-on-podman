@@ -2,7 +2,8 @@ parameters:
   - name: host
     displayName: Linux Hostname (example.com)
     type: string
-    default:
+    default: jamacer
+    values:
       - asuspn51
       - jamacer
 
