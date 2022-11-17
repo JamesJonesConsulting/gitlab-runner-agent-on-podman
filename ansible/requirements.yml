@@ -1,0 +1,4 @@
+collections:
+  - name: https://github.com/JamesJonesConsulting/jamesjonesconsulting.podman_socket_group_permissions.git
+    type: git
+    version: main

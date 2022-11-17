@@ -1,0 +1,13 @@
+parameters:
+  - name: hostname
+    displayName: Linux Hostname (example.com)
+    type: string
+    default:
+      - asuspn51
+      - jamacer
+
+extends:
+  template: .installer.yml    
+  parameters:
+    hostname: ${{ paramters.hostname }}
+
