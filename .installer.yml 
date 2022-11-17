@@ -1,5 +1,5 @@
 parameters:
-  - name: hostname
+  - name: host
     type: string
   - name: hosts
     type: object

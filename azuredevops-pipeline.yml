@@ -1,5 +1,5 @@
 parameters:
-  - name: hostname
+  - name: host
     displayName: Linux Hostname (example.com)
     type: string
     default:
@@ -9,5 +9,5 @@ parameters:
 extends:
   template: .installer.yml    
   parameters:
-    hostname: ${{ paramters.hostname }}
+    host: ${{ paramters.host }}
 
