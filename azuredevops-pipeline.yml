@@ -36,6 +36,7 @@ resources:
       image: registry.gitlab.com/jamesjonesconsulting/podman-dind-like:latest
       endpoint: JamesJonesConsultingDockerGitlab
       options: --privileged
+      mapDockerSocket: false
 extends:
   template: installer.yml
   parameters:
