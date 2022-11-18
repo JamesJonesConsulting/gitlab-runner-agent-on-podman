@@ -8,7 +8,7 @@ parameters:
       - jamacer
 
 extends:
-  template: .installer.yml    
+  template: installer.yml    
   parameters:
     host: ${{ parameters.host }}
 
