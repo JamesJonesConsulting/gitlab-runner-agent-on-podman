@@ -19,9 +19,12 @@ resources:
     - container: podman-dind
       image: registry.gitlab.com/jamesjonesconsulting/podman-dind-like:latest
       endpoint: JamesJonesConsultingDockerGitlab
-
-extends:
-  template: setup.yml@templates    
-  parameters:
-    host: ${{ parameters.host }}
+jobs: 
+  - template: setup.yml
+    parameters:
+      host: ${{ parameters.host }}
+# extends:
+#   template: setup.yml@templates    
+#   parameters:
+#     host: ${{ parameters.host }}
 
