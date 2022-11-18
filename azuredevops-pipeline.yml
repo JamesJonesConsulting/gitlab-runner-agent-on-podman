@@ -35,29 +35,29 @@ resources:
     - container: podman-dind
       image: registry.gitlab.com/jamesjonesconsulting/podman-dind-like:latest
       endpoint: JamesJonesConsultingDockerGitlab
-# extends:
-#   template: setup.yml@templates    
-#   parameters:
-#     host: ${{ parameters.host }}
+extends:
+  template: setup.yml@templates    
+  parameters:
+    host: ${{ parameters.host }}
 
-jobs:
-  - deployment: gitlab_runner_deployment
-    displayName: Gitlab Runner Deployment
-    pool: FedoraHosted
-    environment: GitLab
-    container: podman-dind
-    variables:
-      - group: Connections
-    strategy:
-      runOnce:
-        deploy:
-          steps: 
-            - checkout: self 
-            - bash: |
-                eval $(ssh-agent); ssh-add <(echo "$(default_ssh_key)" | base64 -d);
-                echo "${INVENTORY}" > hosts
-                ansible-galaxy collection install -r ansible/requirements.yml -f 
-                ansible-playbook -i hosts --user $(default_user) ansible/playbook.yml --extra-vars 'host_or_group=${{ parameters.host }}'-b -vvvv
-              displayName: Connect to host and setup GitLab Runner with Podman
-              env: 
-                INVENTORY: ${{ convertToJson(parameters.hosts) }}
+# jobs:
+#   - deployment: gitlab_runner_deployment
+#     displayName: Gitlab Runner Deployment
+#     pool: FedoraHosted
+#     environment: GitLab
+#     container: podman-dind
+#     variables:
+#       - group: Connections
+#     strategy:
+#       runOnce:
+#         deploy:
+#           steps: 
+#             - checkout: self 
+#             - bash: |
+#                 eval $(ssh-agent); ssh-add <(echo "$(default_ssh_key)" | base64 -d);
+#                 echo "${INVENTORY}" > hosts
+#                 ansible-galaxy collection install -r ansible/requirements.yml -f 
+#                 ansible-playbook -i hosts --user $(default_user) ansible/playbook.yml --extra-vars 'host_or_group=${{ parameters.host }}'-b -vvvv
+#               displayName: Connect to host and setup GitLab Runner with Podman
+#               env: 
+#                 INVENTORY: ${{ convertToJson(parameters.hosts) }}
