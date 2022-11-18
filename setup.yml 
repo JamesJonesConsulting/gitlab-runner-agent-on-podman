@@ -15,11 +15,6 @@ parameters:
           hosts:
               asuspn51:
               jamacer:
-resources:
-  containers: 
-    - container: podman-dind
-      image: registry.gitlab.com/jamesjonesconsulting/podman-dind-like:latest
-      endpoint: JamesJonesConsultingDockerGitlab
 jobs:
   deployment: gitlab_runner_deployment
   displayName: Gitlab Runner Deployment
