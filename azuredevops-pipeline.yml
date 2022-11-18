@@ -9,9 +9,12 @@ parameters:
 resources:
   repositories:
     - repository: templates
-      type: github
-      name: JamesJonesConsulting/gitlab-runner-agent-on-podman
-      endpoint: JamesJonesConsulting
+      # type: github
+      # name: JamesJonesConsulting/gitlab-runner-agent-on-podman
+      # endpoint: JamesJonesConsulting
+      type: git
+      name: https://github.com/JamesJonesConsulting/gitlab-runner-agent-on-podman.git
+      ref: refs/heads/main     
   containers: 
     - container: podman-dind
       image: registry.gitlab.com/jamesjonesconsulting/podman-dind-like:latest
