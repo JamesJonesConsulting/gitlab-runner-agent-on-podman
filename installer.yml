@@ -49,4 +49,4 @@ jobs:
               workingDirectory: $(Build.Repository.Name)
               displayName: Connect to host and setup GitLab Runner with Podman
               env:
-                SSH_KEY: (default_ssh_key)
+                SSH_KEY: $(default_ssh_key)
