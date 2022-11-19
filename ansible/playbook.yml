@@ -3,7 +3,7 @@
     - ./vars/main.yml
   tasks: 
     - include_role:
-        name: jamesjonesconsulting.permissions_setup
+        name: jamesjonesconsulting.podman_socket_group_permissions.permissions_setup
       vars:
         podman_user_group: docker
         podman_users:
