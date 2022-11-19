@@ -2,9 +2,14 @@
   vars_files:
     - ./vars/main.yml
   tasks: 
+    # - include_role:
+    #     name: jamesjonesconsulting.podman_socket_group_permissions.permissions_setup
+    #   vars:
+    #     podman_user_group: docker
+    #     podman_users:
+    #       - gitlab-runner
     - include_role:
-        name: jamesjonesconsulting.podman_socket_group_permissions.permissions_setup
+        name: jamesjonesconsulting.gitlab_runner_on_podman.gitlab_runner_setup
       vars:
-        podman_user_group: docker
-        podman_users:
-          - gitlab-runner
+        gitlab_runner_username: gitlab-runner
+        gitlab_runner_podman_group: docker
