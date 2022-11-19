@@ -46,6 +46,7 @@ jobs:
             - bash: |
                 eval $(ssh-agent); ssh-add <(echo "${SSH_KEY}" | base64 -d);
                 ansible-galaxy collection install -r ansible/requirements.yml -f 
+                ls -all $(Build.SourcesDirectory)/template/home
                 ansible-playbook -i $(Build.SourcesDirectory)/template/home/hosts --user=$(default_user) ansible/playbook.yml --extra-vars 'host_or_group=${{ parameters.host }}' -b -vvvv
               workingDirectory: $(Build.SourcesDirectory)/pipeline
               displayName: Connect to host and setup GitLab Runner with Podman
