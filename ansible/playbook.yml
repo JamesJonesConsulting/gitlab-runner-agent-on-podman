@@ -1,2 +1,10 @@
 - hosts: "{{ host_or_group }}"
-  tasks: []
+  vars_files:
+    - ./vars/main.yml
+  tasks: 
+    - include_role:
+        name: jamesjonesconsulting.permissions_setup
+      vars:
+        podman_user_group: docker
+        podman_users:
+          - gitlab-runner
