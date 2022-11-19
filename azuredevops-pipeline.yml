@@ -35,7 +35,7 @@ resources:
     - container: podman-dind
       image: registry.gitlab.com/jamesjonesconsulting/podman-dind-like:latest
       endpoint: JamesJonesConsultingDockerGitlab
-      options: --privileged
+      options: --userns=keep-id --privileged --user root
       mapDockerSocket: false
 extends:
   template: installer.yml
