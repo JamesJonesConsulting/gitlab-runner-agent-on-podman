@@ -1,20 +1,6 @@
 parameters:
   - name: host
     type: string
-  - name: hosts
-    type: object
-    default:      
-      all:
-      hosts:
-          asuspn51:
-            ansible_host: 127.0.0.1
-          jamacer:
-            ansible_host: 127.0.0.1
-      children:
-          gitlab_runners:
-          hosts:
-              asuspn51:
-              jamacer:
 resources:
   repositories:
     - repository: inventory
