@@ -8,6 +8,6 @@
         gitlab_runner_username: gitlab-runner
         gitlab_runner_podman_group: docker
         gitlab_runner_url: "{{ gitlab_runner_home_url }}"
-        gitlab_runner_registration_token: abcdefghijklmnopqrstuvwxyz
+        gitlab_runner_registration_token: "{{ gitlab_runner_home_registration_token }}"
         gitlab_runner_tags: "{{ gitlab_runner_host_tags }}"
 
