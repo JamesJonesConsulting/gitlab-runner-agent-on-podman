@@ -6,6 +6,7 @@ parameters:
     values:
       - asuspn51
       - jamacer
+      - jambrix
 
 
 extends:
