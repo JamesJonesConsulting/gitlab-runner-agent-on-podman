@@ -8,7 +8,7 @@ parameters:
       - jamacer
       - jambrix
 
-
+trigger: none
 extends:
   template: installer.yml
   parameters:
