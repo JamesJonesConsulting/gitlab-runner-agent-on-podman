@@ -7,6 +7,7 @@ parameters:
       - asuspn51
       - jamacer
       - jambrix
+      - beebox
 
 trigger: none
 extends:
