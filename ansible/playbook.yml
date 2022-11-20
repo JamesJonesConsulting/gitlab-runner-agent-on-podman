@@ -2,12 +2,16 @@
   vars_files:
     - ./vars/main.yml
   tasks: 
-    - include_role:
+    - name: Read in the vault
+      ansible.builtin.include_vars:
+        file: "{{ gitlab_vaulted_variables }}"
+        name: gitlab
+    - ansible.builtin.include_role:
         name: jamesjonesconsulting.gitlab_runner_on_podman.gitlab_runner_setup
       vars:
         gitlab_runner_username: gitlab-runner
         gitlab_runner_podman_group: docker
         gitlab_runner_url: "{{ gitlab_runner_home_url }}"
-        gitlab_runner_registration_token: "{{ gitlab_runner_home_registration_token }}"
+        gitlab_runner_registration_token: "{{ gitlab.gitlab_registration_token }}"
         gitlab_runner_tags: "{{ gitlab_runner_host_tags }}"
 
