@@ -14,4 +14,5 @@
         gitlab_runner_url: "{{ gitlab_runner_home_url }}"
         gitlab_runner_registration_token: "{{ gitlab.gitlab_registration_token }}"
         gitlab_runner_tags: "{{ gitlab_runner_host_tags }}"
-
+        gitlab_runner_count: "{{ gitlab_runner_host_count | default(1) }}"
+        gitlab_runner_run_untagged: "{{ gitlab_runner_host_run_untagged | default(true) }}"
