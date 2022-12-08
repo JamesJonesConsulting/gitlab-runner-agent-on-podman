@@ -11,6 +11,7 @@ parameters:
       - sganbuild01
       - indpc
       - jamdb
+      - rancher01
 
 trigger: none
 extends:
