@@ -1,4 +1,4 @@
 collections:
   - name: https://github.com/JamesJonesConsulting/jamesjonesconsulting.gitlab_runner_on_podman.git
     type: git
-    version: main
+    version: develop
