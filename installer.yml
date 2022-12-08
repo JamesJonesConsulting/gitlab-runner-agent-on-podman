@@ -39,9 +39,13 @@ jobs:
                 eval $(ssh-agent); ssh-add <(echo "${SSH_KEY}" | base64 -d);
                 echo -n "${VAULT_KEY}" | base64 -d > $(Agent.TempDirectory)/.vault
                 ansible-galaxy collection install -r ansible/requirements.yml -f 
-                ansible-playbook -i $(Build.SourcesDirectory)/inventory/home/hosts --vault-password-file $(Agent.TempDirectory)/.vault --user=$(default_user) ansible/playbook.yml --extra-vars 'host_or_group=${{ parameters.host }} gitlab_vaulted_variables=$(Build.SourcesDirectory)/vault/home/gitlab/gitlab.yml' -b
+                ansible-playbook -i $(Build.SourcesDirectory)/inventory/home/hosts --vault-password-file $(Agent.TempDirectory)/.vault --user=$LOGIN_USER ansible/playbook.yml --extra-vars 'host_or_group=${{ parameters.host }} gitlab_vaulted_variables=$(Build.SourcesDirectory)/vault/home/gitlab/gitlab.yml' -b
               workingDirectory: $(Build.SourcesDirectory)/pipeline
               displayName: Connect to host and setup GitLab Runner with Podman
               env:
                 SSH_KEY: $(default_ssh_key)
                 VAULT_KEY: $(ansible_vault_key)
+                ${{ if in(parameters.host,'rancher01') }}: 
+                  LOGIN_USER: $(rancher_default_user)
+                ${{ else }}:
+                  LOGIN_USER: $(default_user)
