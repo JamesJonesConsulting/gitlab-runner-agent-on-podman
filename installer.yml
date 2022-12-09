@@ -13,8 +13,8 @@ resources:
       endpoint: JamesJonesConsulting      
   containers: 
     - container: podman-dind
-      image: registry.gitlab.com/jamesjonesconsulting/podman-dind-like:latest
-      endpoint: JamesJonesConsultingDockerGitlab
+      image: nexus.jamjon3.sytes.net:5443/jamesjonesconsulting/podman-dind-like:latest
+      endpoint: JamesJonesConsultingDockerNexusHosted
       options: --userns=keep-id --privileged --user root
       # mapDockerSocket: false
 jobs:
