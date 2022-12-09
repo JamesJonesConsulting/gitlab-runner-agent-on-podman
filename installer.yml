@@ -45,7 +45,7 @@ jobs:
               env:
                 SSH_KEY: $(default_ssh_key)
                 VAULT_KEY: $(ansible_vault_key)
-                ${{ if in(parameters.host,'rancher01') }}: 
+                ${{ if in(parameters.host,'rancher012') }}: 
                   LOGIN_USER: $(rancher_default_user)
                 ${{ else }}:
                   LOGIN_USER: $(default_user)
