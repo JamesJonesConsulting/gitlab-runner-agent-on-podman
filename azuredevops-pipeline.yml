@@ -11,6 +11,7 @@ parameters:
       - build02.jamesjonesconsulting.com
       - indpc.jamesjonesconsulting.com
       - jamdb.jamesjonesconsulting.com
+      - jamtv.jamesjonesconsulting.com
 
 trigger: none
 extends:
